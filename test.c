@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdbool.h>
 #define MaxSize 1000
@@ -53,19 +54,20 @@ void PrintList(SeqList* s)
     {
         printf("%d ", s->data[i]);
     }
+    printf("\n");
 }
 
 //按值查找
 int Locate(SeqList* s, int x)
 {
-    int length = s->length;
-    for (int i = 0; i < length; i++)
+    int len = s->length;
+    for (int i = 0; i < len; i++)
     {
         if (s->data[i] == x)
         {
             return i;
+            break;
         }
-        break;
     }
 }
 
@@ -134,6 +136,12 @@ bool Modify(SeqList* s, int l, int x)
 int main()
 {
     int a[5] = { 1,2,3,4,5 };
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int i = 0;
+    int x = 0;
+    int y = 0;
     SeqList list;
     initSeqList(&list);
     if (Empty(&list))
@@ -143,5 +151,41 @@ int main()
     printf("给顺序表赋值\n");
     CreatList(&list, a, 5);
     PrintList(&list);
+    printf("请选择对程序操作？？？\n");
+    printf("1.遍历操作\n");
+    printf("2.按值查找\n");
+    printf("3.按位查找\n");
+    printf("4.插入操作\n");
+    printf("5.删除操作\n");
+    scanf("%d", &i);
+    if (i == 1)
+    {
+        PrintList(&list);
+    }
+    if (i == 2)
+    {
+        printf("请输入要查找的值\n");
+        scanf("%d", &x);
+        printf("%d", Locate(&list, x));
+    }
+    if (i == 3)
+    {
+        printf("请输入要查找的位\n");
+        scanf("%d", &y);
+        Get(&list, y);
+    }
+    if (i == 4)
+    {
+        printf("请输入要插入的值和位置\n");
+        scanf("&d &d", &c, &b);
+        Insert(&list, c, b);
+    }
+    if (i == 5)
+    {
+        printf("请输入要删除的位\n");
+        scanf("%d", &d);
+        Delete(&list, d);
+        PrintList(&list);
+    }
     return 0;
 }
