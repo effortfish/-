@@ -142,6 +142,7 @@ int main()
     int i = 0;
     int x = 0;
     int y = 0;
+    int k = 0;
     SeqList list;
     initSeqList(&list);
     if (Empty(&list))
@@ -151,41 +152,64 @@ int main()
     printf("给顺序表赋值\n");
     CreatList(&list, a, 5);
     PrintList(&list);
-    printf("请选择对程序操作？？？\n");
-    printf("1.遍历操作\n");
-    printf("2.按值查找\n");
-    printf("3.按位查找\n");
-    printf("4.插入操作\n");
-    printf("5.删除操作\n");
-    scanf("%d", &i);
-    if (i == 1)
+    while (1)
     {
-        PrintList(&list);
-    }
-    if (i == 2)
-    {
-        printf("请输入要查找的值\n");
-        scanf("%d", &x);
-        printf("%d", Locate(&list, x));
-    }
-    if (i == 3)
-    {
-        printf("请输入要查找的位\n");
-        scanf("%d", &y);
-        Get(&list, y);
-    }
-    if (i == 4)
-    {
-        printf("请输入要插入的值和位置\n");
-        scanf("&d &d", &c, &b);
-        Insert(&list, c, b);
-    }
-    if (i == 5)
-    {
-        printf("请输入要删除的位\n");
-        scanf("%d", &d);
-        Delete(&list, d);
-        PrintList(&list);
+        printf("请选择对程序操作？？？\n");
+        printf("1.遍历操作\n");
+        printf("2.按值查找\n");
+        printf("3.按位查找\n");
+        printf("4.插入操作\n");
+        printf("5.删除操作\n");
+        scanf("%d", &i);
+        if (i == 1)
+        {
+            PrintList(&list);
+            printf("继续或者退出？？？1：退出 or 0：继续\n");
+            scanf("%d", &k);
+            if (k == 1)
+                break;
+        }
+        if (i == 2)
+        {
+            printf("请输入要查找的值\n");
+            scanf("%d", &x);
+            printf("%d\n", Locate(&list, x));
+            printf("继续或者退出？？？1：退出 or 0：继续\n");
+            scanf("%d", &k);
+            if (k == 1)
+                break;
+        }
+        if (i == 3)
+        {
+            printf("请输入要查找的位\n");
+            scanf("%d", &y);
+            printf("%d\n", Get(&list, y));
+            printf("继续或者退出？？？1：退出 or 0：继续\n");
+            scanf("%d", &k);
+            if (k == 1)
+                break;
+        }
+        if (i == 4)
+        {
+            printf("请输入要插入的值和位置\n");
+            scanf("&d &d", &c, &b);
+            Insert(&list, c, b);
+            printf("继续或者退出？？？1：退出 or 0：继续\n");
+            scanf("%d", &k);
+            if (k == 1)
+                break;
+        }
+        if (i == 5)
+        {
+            printf("请输入要删除的位\n");
+            scanf("%d", &d);
+            Delete(&list, d);
+            PrintList(&list);
+            printf("继续或者退出？？？1：退出 or 0：继续\n");
+            scanf("%d", &k);
+            if (k == 1)
+                break;
+        }
     }
     return 0;
 }
