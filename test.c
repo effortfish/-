@@ -111,11 +111,10 @@ bool Delete(SeqList* s, int l)
         printf("删除下标不存在");
         return false;
     }
-    for (int index = l + 1; index < s->length; index++)
+    for (int k = l + 1; k < s->length; k++)
     {
-        int j = l;
-        s->data[j] = s->data[index];
-        j++;
+        s->data[l] = s->data[k];
+        l++;
     }
     s->length--;
     return true;
@@ -192,8 +191,9 @@ int main()
         if (i == 4)
         {
             printf("请输入要插入的值和位置\n");
-            scanf("&d &d", &c, &b);
+            scanf("%d %d", &c, &b);
             Insert(&list, c, b);
+            PrintList(&list);
             printf("继续或者退出？？？1：退出 or 0：继续\n");
             scanf("%d", &k);
             if (k == 1)
